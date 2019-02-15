@@ -1,5 +1,10 @@
 ---
 
+- debug:
+    var: cluster_auth_type
+- debug:
+    var: cluster_auth
+
 - name: Create or update cluster Heat stack
   os_stack:
     name: "{{ cluster_name }}"
