@@ -12,6 +12,7 @@
   register: cluster_stack
 
 - block:
+    - debug: var=cluster_stack
     - name: Extract facts from stack
       set_fact:
         cluster_node_groups: "{{ (cluster_stack.stack.outputs | selectattr('output_key', 'equalto', 'node_groups') | first).output_value }}"
