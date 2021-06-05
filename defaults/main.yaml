@@ -15,6 +15,3 @@ cluster_parameters:
   cluster_ssh_public_keys:
     - "{{ cluster_user_ssh_public_key }}"
     - "{{ cluster_deploy_ssh_public_key }}"
-
-cluster_stack_update: true
-cluster_populate_inventory: true

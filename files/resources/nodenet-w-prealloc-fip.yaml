@@ -31,7 +31,7 @@ resources:
   floating_ip_association:
     type: OS::Neutron::FloatingIPAssociation
     properties:
-      floatingip_id: { get_param: [cluster_group, nodenet_fips, { get_param: node_idx }, uuid] }
+      floatingip_id: { get_param: [cluster_group, nodenet_fips, { get_param: node_idx }, id] }
       port_id: { get_resource: port }
       fixed_ip_address: { get_attr: [port, fixed_ips, 0, ip_address] }
 
@@ -41,4 +41,4 @@ outputs:
     value: { get_resource: port }
 
   primary_ip:
-    value: { get_param: [cluster_group, nodenet_fips, { get_param: node_idx }, ip] }
+    value: { get_param: [cluster_group, nodenet_fips, { get_param: node_idx }, floating_ip_address] }
